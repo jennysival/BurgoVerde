@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="image_size_default">200dp</dimen>
+    <dimen name="zero_size">0dp</dimen>
+    <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="title_size">16sp</dimen>
+    <dimen name="subtitle_size">12sp</dimen>
+</resources>
