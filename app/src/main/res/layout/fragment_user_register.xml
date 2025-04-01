@@ -1,14 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.userRegister.UserRegisterFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/logoIv"
+        android:layout_width="@dimen/burgoverde_size200"
+        android:layout_height="@dimen/burgoverde_size200"
+        android:layout_marginTop="@dimen/burgoverde_margin50"
+        android:contentDescription="@string/bugoverde_content_description_logo"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_banner_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/burgoverde_margin24"
+        android:layout_marginTop="@dimen/burgoverde_margin24"
+        android:hint="@string/bugoverde_name_hint"
+        android:textSize="14sp"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/bugoverde_light_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoIv" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ageInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/burgoverde_margin24"
+        android:layout_marginTop="10dp"
+        android:hint="@string/bugoverde_age_hint"
+        android:textSize="14sp"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/bugoverde_light_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameInput" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/emailInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/burgoverde_margin24"
+        android:layout_marginTop="10dp"
+        android:hint="@string/bugoverde_email_hint"
+        android:textSize="14sp"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/bugoverde_light_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ageInput" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/passwordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/burgoverde_margin24"
+        android:layout_marginTop="10dp"
+        android:hint="@string/bugoverde_password_hint"
+        android:textSize="14sp"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/bugoverde_light_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailInput" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/registerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/burgoverde_margin24"
+        android:text="@string/bugoverde_register_button_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordInput" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

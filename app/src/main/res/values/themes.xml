@@ -3,14 +3,14 @@
     <!-- Base application theme. -->
     <style name="Theme.BurgoVerde" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/dark_green</item>
-        <item name="colorPrimaryVariant">@color/light_green</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/bugoverde_dark_green</item>
+        <item name="colorPrimaryVariant">@color/bugoverde_light_green</item>
+        <item name="colorOnPrimary">@color/bugoverde_white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/light_green</item>
-        <item name="colorSecondaryVariant">@color/dark_green</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/bugoverde_light_green</item>
+        <item name="colorSecondaryVariant">@color/bugoverde_dark_green</item>
+        <item name="colorOnSecondary">@color/bugoverde_black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/dark_green</item>
+        <item name="android:statusBarColor">@color/bugoverde_dark_green</item>
     </style>
 </resources>
