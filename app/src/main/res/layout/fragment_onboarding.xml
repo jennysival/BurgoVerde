@@ -8,10 +8,12 @@
 
     <ImageView
         android:id="@+id/logoIv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="50dp"
-        android:contentDescription="TODO"
+        android:layout_width="@dimen/image_size_default"
+        android:layout_height="@dimen/image_size_default"
+        android:layout_marginTop="@dimen/margin_50"
+        android:contentDescription="@string/content_description_burgo_verde"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_banner_foreground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,16 +22,25 @@
         android:id="@+id/titleTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Titulo"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:layout_marginTop="@dimen/margin_50"
+        android:text="@string/app_title"
+        android:textStyle="bold"
+        android:textSize="@dimen/title_size"
+        android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/logoIv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/subtitleTv"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/zero_size"
         android:layout_height="wrap_content"
-        android:text="Subtitulo"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:layout_marginTop="@dimen/margin_4"
+        android:text="@string/app_subtitle"
+        android:textSize="@dimen/subtitle_size"
+        android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/titleTv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -38,18 +49,34 @@
         android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastre-se"
+        android:layout_marginTop="@dimen/margin_24"
+        android:text="@string/register_button_text"
         app:layout_constraintTop_toBottomOf="@id/subtitleTv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/zero_size"
         android:layout_height="wrap_content"
-        android:text="Entre"
+        android:layout_marginTop="@dimen/margin_4"
+        android:text="@string/login_button_text"
         app:layout_constraintTop_toBottomOf="@id/registerBtn"
+        app:layout_constraintStart_toStartOf="@id/registerBtn"
+        app:layout_constraintEnd_toEndOf="@id/registerBtn" />
+
+    <ImageView
+        android:id="@+id/photoIv"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/image_size_default"
+        android:layout_marginTop="@dimen/margin_50"
+        android:contentDescription="@string/content_description_onboarding_banner"
+        android:scaleType="centerCrop"
+        android:src="@drawable/burgo_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/loginBtn"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
