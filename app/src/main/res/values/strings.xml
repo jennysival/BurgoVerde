@@ -13,8 +13,9 @@
     <string name="bugoverde_content_description_onboarding_banner">Colagens sobre natureza acima de uma foto do bairro</string>
 
     <!-- Hints Texts -->
-    <string name="bugoverde_name_hint">Nome*</string>
-    <string name="bugoverde_age_hint">Idade*</string>
-    <string name="bugoverde_email_hint">E-mail*</string>
-    <string name="bugoverde_password_hint">Senha*</string>
+    <string name="bugoverde_name_hint">Nome</string>
+    <string name="bugoverde_age_hint">Idade</string>
+    <string name="bugoverde_email_hint">E-mail</string>
+    <string name="bugoverde_password_hint">Senha</string>
+    <string name="bugoverde_confirm_password_hint">Repita a Senha</string>
 </resources>

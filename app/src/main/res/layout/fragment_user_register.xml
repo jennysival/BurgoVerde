@@ -10,7 +10,6 @@
         android:id="@+id/logoIv"
         android:layout_width="@dimen/burgoverde_size200"
         android:layout_height="@dimen/burgoverde_size200"
-        android:layout_marginTop="@dimen/burgoverde_margin50"
         android:contentDescription="@string/bugoverde_content_description_logo"
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_banner_foreground"
@@ -18,70 +17,139 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/nameInput"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/burgoverde_margin24"
-        android:layout_marginTop="@dimen/burgoverde_margin24"
         android:hint="@string/bugoverde_name_hint"
         android:textSize="@dimen/burgoverde_font_size14"
+        app:boxStrokeColor="@color/bugoverde_dark_green"
+        app:errorEnabled="true"
+        app:hintAnimationEnabled="true"
         app:hintEnabled="true"
-        app:hintTextColor="@color/bugoverde_light_green"
+        app:hintTextColor="@color/bugoverde_dark_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoIv" />
+        app:layout_constraintTop_toBottomOf="@id/logoIv">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/ageInput"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ageInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/burgoverde_margin24"
-        android:layout_marginTop="@dimen/burgoverde_margin10"
         android:hint="@string/bugoverde_age_hint"
         android:textSize="@dimen/burgoverde_font_size14"
+        app:boxStrokeColor="@color/bugoverde_dark_green"
+        app:errorEnabled="true"
+        app:hintAnimationEnabled="true"
         app:hintEnabled="true"
-        app:hintTextColor="@color/bugoverde_light_green"
+        app:hintTextColor="@color/bugoverde_dark_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameInput" />
+        app:layout_constraintTop_toBottomOf="@id/nameInputLayout">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/emailInput"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/burgoverde_margin24"
-        android:layout_marginTop="@dimen/burgoverde_margin10"
         android:hint="@string/bugoverde_email_hint"
         android:textSize="@dimen/burgoverde_font_size14"
+        app:boxStrokeColor="@color/bugoverde_dark_green"
+        app:errorEnabled="true"
+        app:hintAnimationEnabled="true"
         app:hintEnabled="true"
-        app:hintTextColor="@color/bugoverde_light_green"
+        app:hintTextColor="@color/bugoverde_dark_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ageInput" />
+        app:layout_constraintTop_toBottomOf="@id/ageInputLayout">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/passwordInput"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/burgoverde_margin24"
-        android:layout_marginTop="@dimen/burgoverde_margin10"
         android:hint="@string/bugoverde_password_hint"
         android:textSize="@dimen/burgoverde_font_size14"
+        app:boxStrokeColor="@color/bugoverde_dark_green"
+        app:errorEnabled="true"
+        app:hintAnimationEnabled="true"
         app:hintEnabled="true"
-        app:hintTextColor="@color/bugoverde_light_green"
+        app:hintTextColor="@color/bugoverde_dark_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailInput" />
+        app:layout_constraintTop_toBottomOf="@id/emailInputLayout"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/bugoverde_dark_green">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/confirmPasswordInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/burgoverde_margin24"
+        android:hint="@string/bugoverde_confirm_password_hint"
+        android:textSize="@dimen/burgoverde_font_size14"
+        app:boxStrokeColor="@color/bugoverde_dark_green"
+        app:errorEnabled="true"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/bugoverde_dark_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordInputLayout"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/bugoverde_dark_green">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/burgoverde_margin24"
+        android:backgroundTint="@color/bugoverde_dark_green"
         android:text="@string/bugoverde_register_button_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordInput" />
+        app:layout_constraintTop_toBottomOf="@id/confirmPasswordInputLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
