@@ -1,11 +1,21 @@
 <resources>
-    <string name="app_name">BurgoVerde</string>
-    <string name="app_title">Conecte-se com a natureza no Burgo Paulista</string>
-    <string name="app_subtitle">Plante árvores, registre conquistas e veja seu bairro mais verde!</string>
-    <string name="register_button_text">Cadastre-se</string>
-    <string name="login_button_text">Entre</string>
-    <string name="content_description_burgo_verde">Burgo Verde</string>
-    <string name="content_description_onboarding_banner">Colagens sobre natureza acima de uma foto do bairro</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- General Texts -->
+    <string name="bugoverde_app_name">BurgoVerde</string>
+    <string name="bugoverde_app_title">Conecte-se com a natureza no Burgo Paulista</string>
+    <string name="bugoverde_app_subtitle">Plante árvores, registre conquistas e veja seu bairro mais verde!</string>
+
+    <!-- Buttons Texts -->
+    <string name="bugoverde_register_button_text">Cadastre-se</string>
+    <string name="bugoverde_login_button_text">Entre</string>
+
+    <!-- Accessibility Texts -->
+    <string name="bugoverde_content_description_logo">Burgo Verde</string>
+    <string name="bugoverde_content_description_onboarding_banner">Colagens sobre natureza acima de uma foto do bairro</string>
+
+    <!-- Hints Texts -->
+    <string name="bugoverde_name_hint">Nome</string>
+    <string name="bugoverde_age_hint">Idade</string>
+    <string name="bugoverde_email_hint">E-mail</string>
+    <string name="bugoverde_password_hint">Senha</string>
+    <string name="bugoverde_confirm_password_hint">Repita a Senha</string>
 </resources>
