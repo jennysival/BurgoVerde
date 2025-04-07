@@ -5,17 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.NavHostFragment
+import androidx.lifecycle.ViewModelProvider
 import com.jennysival.burgoverde.R
 import com.jennysival.burgoverde.databinding.FragmentOnboardingBinding
+import com.jennysival.burgoverde.factory.UserRegisterViewModelFactory
+import com.jennysival.burgoverde.navigation.BurgoVerdeNavigator
+import com.jennysival.burgoverde.navigation.BurgoVerdeNavigatorImpl
+import com.jennysival.burgoverde.ui.userRegister.AuthViewModel
 
 class OnboardingFragment : Fragment() {
 
     private lateinit var binding: FragmentOnboardingBinding
+    private lateinit var navigator: BurgoVerdeNavigator
+    private lateinit var viewModel: AuthViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentOnboardingBinding.inflate(inflater, container, false)
         return binding.root
@@ -23,21 +28,43 @@ class OnboardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        userRegisterClick()
-        userLoginClick()
+        initViewModel()
+        initNavigator()
+
+        if (viewModel.isUserLoggedIn()) {
+            navigator.navigateToHome(
+                actionId = R.id.action_onboardingFragment_to_homeFragment,
+                message = null
+            )
+        } else {
+            userRegisterClick()
+            userLoginClick()
+        }
+    }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProvider(
+            this, UserRegisterViewModelFactory(requireActivity())
+        )[AuthViewModel::class.java]
+    }
+
+    private fun initNavigator() {
+        navigator = BurgoVerdeNavigatorImpl(this)
     }
 
     private fun userRegisterClick() {
         binding.registerBtn.setOnClickListener {
-            NavHostFragment.findNavController(this)
-                .navigate(R.id.action_onboardingFragment_to_userRegisterFragment)
+            navigator.navigateToRegistration(
+                actionId = R.id.action_onboardingFragment_to_userRegisterFragment
+            )
         }
     }
 
     private fun userLoginClick() {
         binding.loginBtn.setOnClickListener {
-            NavHostFragment.findNavController(this)
-                .navigate(R.id.action_onboardingFragment_to_loginFragment)
+            navigator.navigateToLogin(
+                actionId = R.id.action_onboardingFragment_to_loginFragment
+            )
         }
     }
 }

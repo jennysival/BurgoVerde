@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
-import com.jennysival.burgoverde.ui.userRegister.UserRegisterViewModel
+import com.jennysival.burgoverde.ui.userRegister.AuthViewModel
 import com.jennysival.burgoverde.usecase.AuthUseCase
 import com.jennysival.burgoverde.utils.SharedPreferencesHelper
 
@@ -17,6 +17,6 @@ class UserRegisterViewModelFactory(context: Context) : ViewModelProvider.Factory
     private val useCase = AuthUseCase(auth = auth, db = db, sharedPrefs = sharedPrefs)
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return UserRegisterViewModel(useCase = useCase) as T
+        return AuthViewModel(useCase = useCase) as T
     }
 }

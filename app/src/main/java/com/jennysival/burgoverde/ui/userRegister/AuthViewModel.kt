@@ -10,7 +10,7 @@ import com.jennysival.burgoverde.usecase.AuthUseCase
 import com.jennysival.burgoverde.utils.ViewState
 import kotlinx.coroutines.launch
 
-class UserRegisterViewModel(private val useCase: AuthUseCase) : ViewModel() {
+class AuthViewModel(private val useCase: AuthUseCase) : ViewModel() {
 
     private val _registerState = MutableLiveData<ViewState<AuthResult>>()
     val registerState: LiveData<ViewState<AuthResult>> = _registerState
@@ -29,4 +29,6 @@ class UserRegisterViewModel(private val useCase: AuthUseCase) : ViewModel() {
             }
         }
     }
+
+    fun isUserLoggedIn(): Boolean = useCase.checkUserSession()
 }
