@@ -6,11 +6,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
-import com.jennysival.burgoverde.ui.userRegister.AuthViewModel
+import com.jennysival.burgoverde.ui.AuthViewModel
 import com.jennysival.burgoverde.usecase.AuthUseCase
-import com.jennysival.burgoverde.utils.SharedPreferencesHelper
+import com.jennysival.burgoverde.utils.helper.SharedPreferencesHelper
 
-class UserRegisterViewModelFactory(context: Context) : ViewModelProvider.Factory {
+class AuthViewModelFactory(context: Context) : ViewModelProvider.Factory {
     private val auth = Firebase.auth
     private val db = Firebase.firestore
     private val sharedPrefs = SharedPreferencesHelper(context = context)

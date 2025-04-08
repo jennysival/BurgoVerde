@@ -4,8 +4,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jennysival.burgoverde.data.UserModel
-import com.jennysival.burgoverde.utils.SharedPreferencesHelper
-import com.jennysival.burgoverde.utils.USER_UID_ERROR
+import com.jennysival.burgoverde.utils.helper.SharedPreferencesHelper
 import kotlinx.coroutines.tasks.await
 
 class AuthRepository(
@@ -47,8 +46,6 @@ class AuthRepository(
         auth.signOut()
     }
 
-    fun getUserEmail(): String = auth.currentUser?.email.toString()
-
     fun getUserName(): String? = sharedPrefs.getUserName()
 
 
@@ -75,10 +72,13 @@ class AuthRepository(
         }
     }
 
+    private fun getUserEmail(): String = auth.currentUser?.email.toString()
+
     companion object {
         const val NAME_KEY = "name"
         const val AGE_KEY = "age"
         const val EMAIL_KEY = "email"
         const val USERS_COLLECTION = "users"
+        const val USER_UID_ERROR = "Erro ao obter UID do usuário"
     }
 }

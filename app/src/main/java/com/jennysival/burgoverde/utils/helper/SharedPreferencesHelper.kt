@@ -1,4 +1,4 @@
-package com.jennysival.burgoverde.utils
+package com.jennysival.burgoverde.utils.helper
 
 import android.content.Context
 import android.content.SharedPreferences
