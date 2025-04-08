@@ -7,6 +7,7 @@
     <!-- Buttons Texts -->
     <string name="bugoverde_register_button_text">Cadastre-se</string>
     <string name="bugoverde_login_button_text">Entre</string>
+    <string name="bugoverde_reset_password_button_text">Esqueceu a senha?</string>
 
     <!-- Accessibility Texts -->
     <string name="bugoverde_content_description_logo">Burgo Verde</string>
@@ -18,4 +19,18 @@
     <string name="bugoverde_email_hint">E-mail</string>
     <string name="bugoverde_password_hint">Senha</string>
     <string name="bugoverde_confirm_password_hint">Repita a Senha</string>
+
+    <!-- Alert Texts -->
+    <string name="burgoverde_success_register_text">Registro feito com sucesso!</string>
+
+    <!-- Error Texts -->
+    <string name="burgoverde_ops_text">Ops, tente novamente!</string>
+    <string name="burgoverde_error_required_field">Este campo é obrigatório</string>
+    <string name="burgoverde_error_password_mismatch">As senhas devem ser iguais</string>
+    <string name="burgoverde_unknown_password">Senha Incorreta!</string>
+    <string name="burgoverde_unknown_email">E-mail não cadastrado!</string>
+    <string name="burgoverde_wrong_email_or_password">E-mail ou senha inválidos</string>
+    <string name="burgoverde_invalid_email">E-mail inválido!</string>
+    <string name="burgoverde_duplicated_email">Este e-mail já está cadastrado!</string>
+    <string name="burgoverde_weak_password">Senha insegura, por favor escolha uma senha forte!</string>
 </resources>

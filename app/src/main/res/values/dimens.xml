@@ -3,11 +3,13 @@
     <!-- General Sizes -->
     <dimen name="burgoverde_size200">200dp</dimen>
     <dimen name="burgoverde_size150">150dp</dimen>
+    <dimen name="burgoverde_size100">100dp</dimen>
     <dimen name="burgoverde_size0">0dp</dimen>
 
     <!-- General Margins -->
     <dimen name="burgoverde_margin4">4dp</dimen>
     <dimen name="burgoverde_margin10">10dp</dimen>
+    <dimen name="burgoverde_margin16">16dp</dimen>
     <dimen name="burgoverde_margin24">24dp</dimen>
     <dimen name="burgoverde_margin50">50dp</dimen>
 
