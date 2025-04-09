@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    android:layout_height="match_parent">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/subtitleTv"
@@ -12,7 +10,7 @@
         android:layout_marginHorizontal="@dimen/burgoverde_margin24"
         android:layout_marginTop="@dimen/burgoverde_margin4"
         android:layout_gravity="center"
-        android:text="Home"
+        android:text="Profile"
         android:textSize="24sp"
         android:textAlignment="center" />
 

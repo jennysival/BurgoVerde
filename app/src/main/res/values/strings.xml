@@ -9,6 +9,12 @@
     <string name="bugoverde_login_button_text">Entre</string>
     <string name="bugoverde_reset_password_button_text">Esqueceu a senha?</string>
 
+    <!-- Menu Texts -->
+    <string name="bugoverde_home_menu_text">Início</string>
+    <string name="bugoverde_profile_menu_text">Perfil</string>
+    <string name="bugoverde_map_menu_text">Navegue</string>
+    <string name="bugoverde_plant_menu_text">Plante</string>
+
     <!-- Accessibility Texts -->
     <string name="bugoverde_content_description_logo">Burgo Verde</string>
     <string name="bugoverde_content_description_onboarding_banner">Colagens sobre natureza acima de uma foto do bairro</string>
