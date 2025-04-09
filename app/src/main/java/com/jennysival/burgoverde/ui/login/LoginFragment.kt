@@ -32,7 +32,7 @@ class LoginFragment : BaseAuthFragment() {
         observeAuthState(
             viewModel = viewModel,
             rootView = binding.root,
-            successAction = { R.id.action_loginFragment_to_homeFragment }
+            successActionId = R.id.action_loginFragment_to_mainFragment
         )
         userLoginClick()
     }

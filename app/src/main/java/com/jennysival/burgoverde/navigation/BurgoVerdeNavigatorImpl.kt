@@ -6,7 +6,7 @@ import androidx.navigation.fragment.NavHostFragment
 
 class BurgoVerdeNavigatorImpl(private val fragment: Fragment) : BurgoVerdeNavigator {
 
-    override fun navigateToHome(actionId: Int, message: String?) {
+    override fun navigate(actionId: Int, message: String?) {
         NavHostFragment.findNavController(fragment)
             .navigate(actionId)
 
@@ -17,16 +17,6 @@ class BurgoVerdeNavigatorImpl(private val fragment: Fragment) : BurgoVerdeNaviga
                 Toast.LENGTH_LONG
             ).show()
         }
-    }
-
-    override fun navigateToLogin(actionId: Int) {
-        NavHostFragment.findNavController(fragment)
-            .navigate(actionId)
-    }
-
-    override fun navigateToRegistration(actionId: Int) {
-        NavHostFragment.findNavController(fragment)
-            .navigate(actionId)
     }
 
 }

@@ -36,13 +36,13 @@ abstract class BaseAuthFragment : Fragment() {
     protected fun observeAuthState(
         viewModel: AuthViewModel,
         rootView: View,
-        successAction: () -> Int,
+        successActionId: Int,
         successMessage: String? = null
     ) {
         viewModel.authState.observe(viewLifecycleOwner) {
             when (it) {
-                is AuthViewState.Success -> navigator.navigateToHome(
-                    actionId = successAction(),
+                is AuthViewState.Success -> navigator.navigate(
+                    actionId = successActionId,
                     message = successMessage
                 )
                 is AuthViewState.Error -> showSnackBar(

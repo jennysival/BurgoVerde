@@ -1,4 +1,4 @@
-package com.jennysival.burgoverde.ui
+package com.jennysival.burgoverde.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

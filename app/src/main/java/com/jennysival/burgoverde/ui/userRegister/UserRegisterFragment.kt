@@ -33,7 +33,7 @@ class UserRegisterFragment : BaseAuthFragment() {
         observeAuthState(
             viewModel = registerViewModel,
             rootView = binding.root,
-            successAction = { R.id.action_userRegisterFragment_to_homeFragment },
+            successActionId = R.id.action_userRegisterFragment_to_mainFragment,
             successMessage = getString(R.string.burgoverde_success_register_text)
         )
         userRegisterClick()

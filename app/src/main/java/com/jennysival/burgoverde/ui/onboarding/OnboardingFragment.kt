@@ -46,8 +46,8 @@ class OnboardingFragment : Fragment() {
 
     private fun setupUserOnboardingNavigation() {
         if (viewModel.isUserLoggedIn()) {
-            navigator.navigateToHome(
-                actionId = R.id.action_onboardingFragment_to_homeFragment,
+            navigator.navigate(
+                actionId = R.id.action_onboardingFragment_to_mainFragment,
                 message = null
             )
         } else {
@@ -58,16 +58,18 @@ class OnboardingFragment : Fragment() {
 
     private fun userRegisterClick() {
         binding.registerBtn.setOnClickListener {
-            navigator.navigateToRegistration(
-                actionId = R.id.action_onboardingFragment_to_userRegisterFragment
+            navigator.navigate(
+                actionId = R.id.action_onboardingFragment_to_userRegisterFragment,
+                message = null
             )
         }
     }
 
     private fun userLoginClick() {
         binding.loginBtn.setOnClickListener {
-            navigator.navigateToLogin(
-                actionId = R.id.action_onboardingFragment_to_loginFragment
+            navigator.navigate(
+                actionId = R.id.action_onboardingFragment_to_loginFragment,
+                null
             )
         }
     }
