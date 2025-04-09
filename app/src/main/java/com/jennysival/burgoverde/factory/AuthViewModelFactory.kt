@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
-import com.jennysival.burgoverde.ui.AuthViewModel
+import com.jennysival.burgoverde.ui.baseAuth.AuthViewModel
 import com.jennysival.burgoverde.usecase.AuthUseCase
 import com.jennysival.burgoverde.utils.helper.SharedPreferencesHelper
 
