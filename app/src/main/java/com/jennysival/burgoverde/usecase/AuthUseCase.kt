@@ -52,6 +52,22 @@ class AuthUseCase(
         }
     }
 
+    suspend fun resetPassword(email: String): AuthViewState<Unit> {
+        return try {
+            val result = authRepository.resetPassword(email = email)
+            result.fold(
+                onSuccess = { resetResult -> AuthViewState.Success(resetResult) },
+                onFailure = { exception ->
+                    val resetError = mapFirebaseExceptionToAuthError(exception)
+                    AuthViewState.Error(resetError)
+                }
+            )
+        } catch (e: Exception) {
+            val resetError = mapFirebaseExceptionToAuthError(e)
+            AuthViewState.Error(resetError)
+        }
+    }
+
     fun checkUserSession(): Boolean {
         return authRepository.isUserLoggedIn()
     }

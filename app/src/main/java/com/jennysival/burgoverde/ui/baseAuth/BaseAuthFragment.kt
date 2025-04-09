@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import com.jennysival.burgoverde.navigation.BurgoVerdeNavigator
 import com.jennysival.burgoverde.navigation.BurgoVerdeNavigatorImpl
-import com.jennysival.burgoverde.ui.AuthViewModel
 import com.jennysival.burgoverde.utils.helper.UserInputValidator
 import com.jennysival.burgoverde.utils.showSnackBar
 import com.jennysival.burgoverde.utils.viewstate.AuthViewState

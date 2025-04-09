@@ -9,7 +9,7 @@ import com.jennysival.burgoverde.R
 import com.jennysival.burgoverde.data.UserModel
 import com.jennysival.burgoverde.databinding.FragmentUserRegisterBinding
 import com.jennysival.burgoverde.factory.AuthViewModelFactory
-import com.jennysival.burgoverde.ui.AuthViewModel
+import com.jennysival.burgoverde.ui.baseAuth.AuthViewModel
 import com.jennysival.burgoverde.ui.baseAuth.BaseAuthFragment
 import com.jennysival.burgoverde.utils.hideKeyboard
 

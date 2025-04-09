@@ -1,4 +1,4 @@
-package com.jennysival.burgoverde.ui
+package com.jennysival.burgoverde.ui.baseAuth
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -17,6 +17,9 @@ class AuthViewModel(private val useCase: AuthUseCase) : ViewModel() {
 
     private val _authState = MutableLiveData<AuthViewState<AuthResult>>()
     val authState: LiveData<AuthViewState<AuthResult>> = _authState
+
+    private val _resetPasswordState = MutableLiveData<AuthViewState<Unit>>()
+    val resetPasswordState: LiveData<AuthViewState<Unit>> = _resetPasswordState
 
     private val _loadingState = MutableLiveData<Boolean>()
     val loadingState: LiveData<Boolean> = _loadingState
@@ -45,8 +48,22 @@ class AuthViewModel(private val useCase: AuthUseCase) : ViewModel() {
                 _loadingState.value = false
             } catch (e: Exception) {
                 val authError = mapFirebaseExceptionToAuthError(e)
-                Log.e("FirebaseError", "Exception: ${e::class.java.simpleName}, message: ${e.message}, code: ${(e as? FirebaseAuthInvalidUserException)?.errorCode}")
                 _authState.value = AuthViewState.Error(authError)
+                _loadingState.value = false
+            }
+        }
+    }
+
+    fun resetPassword(email: String) {
+        _loadingState.value = true
+
+        viewModelScope.launch {
+            try {
+                _resetPasswordState.value = useCase.resetPassword(email = email)
+                _loadingState.value = false
+            } catch (e: Exception) {
+                val resetError = mapFirebaseExceptionToAuthError(e)
+                _resetPasswordState.value = AuthViewState.Error(resetError)
                 _loadingState.value = false
             }
         }

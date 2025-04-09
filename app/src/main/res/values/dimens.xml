@@ -5,6 +5,7 @@
     <dimen name="burgoverde_size150">150dp</dimen>
     <dimen name="burgoverde_size100">100dp</dimen>
     <dimen name="burgoverde_size24">24dp</dimen>
+    <dimen name="burgoverde_size12">12dp</dimen>
     <dimen name="burgoverde_size0">0dp</dimen>
 
     <!-- General Margins -->

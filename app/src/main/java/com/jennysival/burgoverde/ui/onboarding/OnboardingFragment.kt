@@ -11,7 +11,7 @@ import com.jennysival.burgoverde.databinding.FragmentOnboardingBinding
 import com.jennysival.burgoverde.factory.AuthViewModelFactory
 import com.jennysival.burgoverde.navigation.BurgoVerdeNavigator
 import com.jennysival.burgoverde.navigation.BurgoVerdeNavigatorImpl
-import com.jennysival.burgoverde.ui.AuthViewModel
+import com.jennysival.burgoverde.ui.baseAuth.AuthViewModel
 
 class OnboardingFragment : Fragment() {
 
