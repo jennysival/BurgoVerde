@@ -38,12 +38,18 @@ class ProfileViewModel(private val useCase: UserUseCase) : ViewModel() {
         _loadingState.value = true
 
         viewModelScope.launch {
-            try {
-                _imageState.value = useCase.getProfileImage()
+            val cachedUrl = useCase.getCachedProfileImageUrl()
+            if(!cachedUrl.isNullOrEmpty()) {
+                _imageState.value = ProfileViewState.Success(cachedUrl)
                 _loadingState.value = false
-            } catch (e: Exception) {
-                _imageState.value = ProfileViewState.Error(e)
-                _loadingState.value = false
+            } else {
+                try {
+                    _imageState.value = useCase.getProfileImage()
+                    _loadingState.value = false
+                } catch (e: Exception) {
+                    _imageState.value = ProfileViewState.Error(e)
+                    _loadingState.value = false
+                }
             }
         }
     }

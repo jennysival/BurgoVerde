@@ -28,6 +28,8 @@ class UserRepository(
                 .update(PROFILE_IMAGE_KEY, downloadUrl)
                 .await()
 
+            sharedPrefs.saveProfileImageUrl(downloadUrl)
+
             Result.success(downloadUrl)
         } catch (e: Exception) {
             Result.failure(e)
@@ -46,6 +48,9 @@ class UserRepository(
     }
 
     fun getUserName(): String? = sharedPrefs.getUserName()
+
+    fun getCachedProfileImageUrl(): String? = sharedPrefs.getProfileImageUrl()
+
 
     fun logout() {
         auth.signOut()

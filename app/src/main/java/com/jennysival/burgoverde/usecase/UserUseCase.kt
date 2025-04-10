@@ -36,9 +36,9 @@ class UserUseCase(
         userRepository.logout()
     }
 
-    fun getUserName(): String {
-        return userRepository.getUserName() ?: DEFAULT_USER_NAME
-    }
+    fun getUserName(): String = userRepository.getUserName() ?: DEFAULT_USER_NAME
+
+    fun getCachedProfileImageUrl(): String? = userRepository.getCachedProfileImageUrl()
 
     companion object {
         const val DEFAULT_USER_NAME = "Vizinho(a)"
