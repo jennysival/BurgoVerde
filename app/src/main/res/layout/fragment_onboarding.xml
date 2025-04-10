@@ -34,7 +34,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/subtitleTv"
-        android:layout_width="@dimen/burgoverde_size0"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/burgoverde_margin24"
         android:layout_marginTop="@dimen/burgoverde_margin4"
@@ -57,7 +57,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginBtn"
-        android:layout_width="@dimen/burgoverde_size0"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/burgoverde_margin4"
         android:layout_marginBottom="@dimen/burgoverde_margin50"
@@ -70,7 +70,7 @@
 
     <ImageView
         android:id="@+id/photoIv"
-        android:layout_width="@dimen/burgoverde_size0"
+        android:layout_width="0dp"
         android:layout_height="@dimen/burgoverde_size150"
         android:contentDescription="@string/bugoverde_content_description_onboarding_banner"
         android:scaleType="centerCrop"

@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_plant"/>
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.jennysival.burgoverde.ui.userProfile.ProfileFragment"
+        android:name="com.jennysival.burgoverde.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile"/>
 </navigation>
