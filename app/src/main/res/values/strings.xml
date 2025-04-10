@@ -11,6 +11,8 @@
     <string name="bugoverde_reset_password_button_text">Esqueceu a senha?</string>
     <string name="bugoverde_send_button_text">Enviar</string>
     <string name="bugoverde_dismiss_button_text">Cancelar</string>
+    <string name="bugoverde_logout_button_text">Sair</string>
+    <string name="bugoverde_change_photo_button_text">Trocar Foto</string>
 
     <!-- Menu Texts -->
     <string name="bugoverde_home_menu_text">Início</string>

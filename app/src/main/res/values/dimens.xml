@@ -5,6 +5,7 @@
     <dimen name="burgoverde_size150">150dp</dimen>
     <dimen name="burgoverde_size100">100dp</dimen>
     <dimen name="burgoverde_size24">24dp</dimen>
+    <dimen name="burgoverde_size16">16dp</dimen>
     <dimen name="burgoverde_size12">12dp</dimen>
     <dimen name="burgoverde_size0">0dp</dimen>
 
@@ -16,7 +17,9 @@
     <dimen name="burgoverde_margin50">50dp</dimen>
 
     <!-- Fonts Sizes -->
+    <dimen name="burgoverde_font_size11">11sp</dimen>
     <dimen name="burgoverde_font_size12">12sp</dimen>
     <dimen name="burgoverde_font_size14">14sp</dimen>
     <dimen name="burgoverde_font_size16">16sp</dimen>
+    <dimen name="burgoverde_font_size24">24sp</dimen>
 </resources>
