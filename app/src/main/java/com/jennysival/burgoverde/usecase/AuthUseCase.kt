@@ -72,16 +72,4 @@ class AuthUseCase(
         return authRepository.isUserLoggedIn()
     }
 
-    fun logout() {
-        authRepository.logout()
-    }
-
-    fun getUserName(): String {
-        return authRepository.getUserName() ?: DEFAULT_USER_NAME
-    }
-
-    companion object {
-        const val DEFAULT_USER_NAME = "Vizinho(a)"
-    }
-
 }

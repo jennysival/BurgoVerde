@@ -15,6 +15,14 @@ class SharedPreferencesHelper(context: Context) {
         return sharedPreferences.getString(USER_NAME, null)
     }
 
+    fun saveProfileImageUrl(url: String) {
+        sharedPreferences.edit().putString(PROFILE_IMAGE_URL, url).apply()
+    }
+
+    fun getProfileImageUrl(): String? {
+        return sharedPreferences.getString(PROFILE_IMAGE_URL, null)
+    }
+
     fun clearUserData() {
         sharedPreferences.edit().clear().apply()
     }
@@ -22,5 +30,6 @@ class SharedPreferencesHelper(context: Context) {
     companion object {
         const val USER_PREFS = "user_prefs"
         const val USER_NAME = "user_name"
+        const val PROFILE_IMAGE_URL = "profile_image_url"
     }
 }

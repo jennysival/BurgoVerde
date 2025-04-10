@@ -3,6 +3,7 @@
     <string name="bugoverde_app_name">BurgoVerde</string>
     <string name="bugoverde_app_title">Conecte-se com a natureza no Burgo Paulista</string>
     <string name="bugoverde_app_subtitle">Plante árvores, registre conquistas e veja seu bairro mais verde!</string>
+    <string name="bugoverde_app_info">Este app foi desenvolvido com carinho para incentivar o cuidado com o meio ambiente no Burgo Paulista. Versão: 1.0.0. Última atualização: Abril de 2025. Se encontrar algum problema conta pra gente! Ou manda um elogio também, a gente adora! </string>
 
     <!-- Buttons Texts -->
     <string name="bugoverde_register_button_text">Cadastre-se</string>
@@ -10,6 +11,8 @@
     <string name="bugoverde_reset_password_button_text">Esqueceu a senha?</string>
     <string name="bugoverde_send_button_text">Enviar</string>
     <string name="bugoverde_dismiss_button_text">Cancelar</string>
+    <string name="bugoverde_logout_button_text">Sair</string>
+    <string name="bugoverde_change_photo_button_text">Trocar Foto</string>
 
     <!-- Menu Texts -->
     <string name="bugoverde_home_menu_text">Início</string>
@@ -33,6 +36,7 @@
     <string name="burgoverde_success_register_text">Registro feito com sucesso!</string>
     <string name="burgoverde_reset_password_text">Redefinir Senha</string>
     <string name="burgoverde_email_sent_text">E-mail enviado!</string>
+    <string name="burgoverde_image_upload_success">Foto adicionada com sucesso!</string>
 
     <!-- Error Texts -->
     <string name="burgoverde_ops_text">Ops, tente novamente!</string>
@@ -44,4 +48,5 @@
     <string name="burgoverde_invalid_email">E-mail inválido!</string>
     <string name="burgoverde_duplicated_email">Este e-mail já está cadastrado!</string>
     <string name="burgoverde_weak_password">Senha insegura, por favor escolha uma senha forte!</string>
+    <string name="burgoverde_image_upload_error">Erro ao adicionar a foto</string>
 </resources>

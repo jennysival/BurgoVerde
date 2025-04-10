@@ -51,12 +51,6 @@ class AuthRepository(
         }
     }
 
-    fun logout() {
-        auth.signOut()
-    }
-
-    fun getUserName(): String? = sharedPrefs.getUserName()
-
 
     fun isUserLoggedIn(): Boolean {
         return auth.currentUser != null

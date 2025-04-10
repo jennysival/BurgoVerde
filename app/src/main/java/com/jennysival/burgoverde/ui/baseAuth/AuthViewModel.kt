@@ -1,16 +1,14 @@
 package com.jennysival.burgoverde.ui.baseAuth
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.jennysival.burgoverde.data.UserModel
 import com.jennysival.burgoverde.usecase.AuthUseCase
-import com.jennysival.burgoverde.utils.viewstate.AuthViewState
 import com.jennysival.burgoverde.utils.mapper.mapFirebaseExceptionToAuthError
+import com.jennysival.burgoverde.utils.viewstate.AuthViewState
 import kotlinx.coroutines.launch
 
 class AuthViewModel(private val useCase: AuthUseCase) : ViewModel() {
