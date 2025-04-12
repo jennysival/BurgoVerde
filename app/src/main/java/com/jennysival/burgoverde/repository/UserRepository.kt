@@ -6,6 +6,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.jennysival.burgoverde.repository.AuthRepository.Companion.USERS_COLLECTION
 import com.jennysival.burgoverde.repository.AuthRepository.Companion.USER_UID_ERROR
+import com.jennysival.burgoverde.utils.IMAGE_FORMAT_SUFFIX
 import com.jennysival.burgoverde.utils.helper.SharedPreferencesHelper
 import kotlinx.coroutines.tasks.await
 
@@ -19,7 +20,7 @@ class UserRepository(
     suspend fun uploadProfileImage(uri: Uri): Result<String> {
         return try {
             val uid = auth.currentUser?.uid ?: throw Exception(USER_UID_ERROR)
-            val ref = storage.reference.child("profile_images/$uid.jpg")
+            val ref = storage.reference.child("$PROFILE_IMAGE_PATH$uid$IMAGE_FORMAT_SUFFIX")
 
             ref.putFile(uri).await()
             val downloadUrl = ref.downloadUrl.await().toString()
@@ -58,5 +59,6 @@ class UserRepository(
 
     companion object {
         private const val PROFILE_IMAGE_KEY = "profileImageUrl"
+        private const val PROFILE_IMAGE_PATH = "profile_images/"
     }
 }

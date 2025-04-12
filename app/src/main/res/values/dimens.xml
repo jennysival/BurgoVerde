@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- General Sizes -->
+    <dimen name="burgoverde_size500">500dp</dimen>
+    <dimen name="burgoverde_size250">250dp</dimen>
     <dimen name="burgoverde_size200">200dp</dimen>
     <dimen name="burgoverde_size150">150dp</dimen>
     <dimen name="burgoverde_size100">100dp</dimen>
+    <dimen name="burgoverde_size40">40dp</dimen>
     <dimen name="burgoverde_size24">24dp</dimen>
     <dimen name="burgoverde_size16">16dp</dimen>
     <dimen name="burgoverde_size12">12dp</dimen>
@@ -21,5 +24,8 @@
     <dimen name="burgoverde_font_size12">12sp</dimen>
     <dimen name="burgoverde_font_size14">14sp</dimen>
     <dimen name="burgoverde_font_size16">16sp</dimen>
+    <dimen name="burgoverde_font_size20">20sp</dimen>
     <dimen name="burgoverde_font_size24">24sp</dimen>
+
+    <dimen name="design_fab_image_size" tools:override="true">56dp</dimen>
 </resources>

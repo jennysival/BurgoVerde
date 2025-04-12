@@ -72,6 +72,11 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.zelory.compressor)
 
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
