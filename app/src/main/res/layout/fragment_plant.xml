@@ -1,18 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/burgoverde_margin50"
+        android:layout_marginVertical="@dimen/burgoverde_margin50"
+        android:backgroundTint="@color/bugoverde_beige"
+        app:cardCornerRadius="@dimen/burgoverde_size24"
+        app:layout_constraintBottom_toTopOf="@id/rvPlants"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/addPlantTitleTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/burgoverde_margin24"
+                android:layout_marginTop="@dimen/burgoverde_margin50"
+                android:layout_marginBottom="@dimen/burgoverde_font_size24"
+                android:text="@string/bugoverde_add_plant_title"
+                android:textAlignment="center"
+                android:textSize="@dimen/burgoverde_font_size20"
+                android:textStyle="bold" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/burgoverde_margin24"
+                android:backgroundTint="@color/bugoverde_dark_green"
+                android:contentDescription="@string/bugoverde_content_description_add_photo"
+                app:fabCustomSize="@dimen/burgoverde_size100"
+                app:shapeAppearance="?attr/shapeAppearanceLargeComponent"
+                app:srcCompat="@drawable/ic_camera"
+                app:tint="@color/bugoverde_white" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/plantInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/burgoverde_margin24"
+                android:layout_marginBottom="@dimen/burgoverde_margin16"
+                android:hint="@string/bugoverde_plant_name_hint"
+                android:textSize="@dimen/burgoverde_font_size14"
+                app:boxBackgroundColor="@color/bugoverde_white"
+                app:boxStrokeColor="@color/bugoverde_dark_green"
+                app:errorEnabled="true"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/bugoverde_dark_green">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/subtitleTv"
+        android:id="@+id/myPlantsTitleTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/burgoverde_margin24"
-        android:layout_marginTop="@dimen/burgoverde_margin4"
-        android:layout_gravity="center"
-        android:text="Plant"
-        android:textSize="24sp"
-        android:textAlignment="center" />
+        android:layout_marginHorizontal="@dimen/burgoverde_margin50"
+        android:layout_marginTop="@dimen/burgoverde_margin24"
+        android:text="@string/bugoverde_my_plants_title"
+        android:textAlignment="center"
+        android:textColor="@color/bugoverde_dark_green"
+        android:textSize="@dimen/burgoverde_font_size16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView" />
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPlants"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/burgoverde_margin10"
+        android:layout_marginTop="@dimen/burgoverde_margin10"
+        android:layout_marginBottom="@dimen/burgoverde_margin24"
+        android:fadeScrollbars="true"
+        android:orientation="horizontal"
+        android:scrollbarSize="@dimen/burgoverde_margin10"
+        android:scrollbarThumbHorizontal="@color/bugoverde_beige"
+        android:scrollbars="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myPlantsTitleTv"
+        app:layout_constraintVertical_bias="0.0"
+        app:spanCount="4"
+        tools:itemCount="6"
+        tools:listitem="@layout/plant_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemCardView"
+    android:layout_width="@dimen/burgoverde_size200"
+    android:layout_height="@dimen/burgoverde_size250"
+    android:layout_marginEnd="@dimen/burgoverde_margin10"
+    android:backgroundTint="@color/bugoverde_beige"
+    app:cardCornerRadius="@dimen/burgoverde_size24">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/burgoverde_size200"
+            android:contentDescription="@string/bugoverde_content_description_placeholder"
+            android:scaleType="centerCrop"
+            android:src="@drawable/burgo_image" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/addPlantTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/burgoverde_margin10"
+            android:layout_marginTop="@dimen/burgoverde_margin10"
+            android:layout_marginBottom="@dimen/burgoverde_font_size24"
+            android:textAlignment="center"
+            android:textSize="@dimen/burgoverde_font_size14"
+            android:textStyle="bold"
+            tools:text="@string/bugoverde_content_description_placeholder" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
