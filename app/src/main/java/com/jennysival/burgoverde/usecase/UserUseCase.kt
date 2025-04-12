@@ -2,6 +2,7 @@ package com.jennysival.burgoverde.usecase
 
 import android.net.Uri
 import com.jennysival.burgoverde.repository.UserRepository
+import com.jennysival.burgoverde.utils.DEFAULT_USER_NAME
 import com.jennysival.burgoverde.utils.viewstate.ProfileViewState
 
 class UserUseCase(
@@ -39,8 +40,4 @@ class UserUseCase(
     fun getUserName(): String = userRepository.getUserName() ?: DEFAULT_USER_NAME
 
     fun getCachedProfileImageUrl(): String? = userRepository.getCachedProfileImageUrl()
-
-    companion object {
-        const val DEFAULT_USER_NAME = "Vizinho(a)"
-    }
 }
