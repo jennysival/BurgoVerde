@@ -38,6 +38,7 @@
                 android:textStyle="bold" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/addPlantButtonView"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -49,6 +50,18 @@
                 app:shapeAppearance="?attr/shapeAppearanceLargeComponent"
                 app:srcCompat="@drawable/ic_camera"
                 app:tint="@color/bugoverde_white" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/uploadLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/burgoverde_size24"
+                android:visibility="gone"
+                app:indicatorColor="@color/bugoverde_white"
+                app:indicatorSize="@dimen/burgoverde_size24"
+                app:trackColor="@color/bugoverde_dark_green"
+                android:indeterminate="true"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/plantInputLayout"
@@ -90,6 +103,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardView" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/emptyPlantsTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/burgoverde_margin50"
+        android:layout_marginTop="@dimen/burgoverde_margin24"
+        android:text="@string/bugoverde_empty_plants_title"
+        android:textAlignment="center"
+        android:textSize="@dimen/burgoverde_font_size16"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myPlantsTitleTv" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPlants"
         android:layout_width="0dp"
@@ -102,6 +130,7 @@
         android:scrollbarSize="@dimen/burgoverde_margin10"
         android:scrollbarThumbHorizontal="@color/bugoverde_beige"
         android:scrollbars="horizontal"
+        android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -110,6 +139,7 @@
         app:layout_constraintVertical_bias="0.0"
         app:spanCount="4"
         tools:itemCount="6"
-        tools:listitem="@layout/plant_item" />
+        tools:listitem="@layout/plant_item"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
