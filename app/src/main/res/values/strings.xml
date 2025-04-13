@@ -9,6 +9,9 @@
     <string name="bugoverde_empty_plants_title">Plante sua primeira mudinha :)</string>
     <string name="bugoverde_soon_title">Em Breve</string>
     <string name="burgoverde_map_soon_description">Com nosso mapa interativo será possível: \n+ Visualizar onde as mudas foram plantadas; \n+ Descobrir locais disponíveis para plantio; \n+ Encontrar pontos de coleta de mudas; \n+ E muito mais!</string>
+    <string name="bugoverde_lets_plant_together_title">Vamos plantar juntos?</string>
+    <string name="bugoverde_group_goal_title">Meta Coletiva</string>
+    <string name="bugoverde_group_goal_subtitle">Nossa meta do mês é de 30 plantios!</string>
 
     <!-- Buttons Texts -->
     <string name="bugoverde_register_button_text">Cadastre-se</string>
@@ -20,6 +23,7 @@
     <string name="bugoverde_change_photo_button_text">Trocar Foto</string>
     <string name="bugoverde_close_button_text">Fechar</string>
     <string name="bugoverde_delete_button_text">Excluir</string>
+    <string name="bugoverde_plant_button_text">+ Plantar</string>
 
     <!-- Menu Texts -->
     <string name="bugoverde_home_menu_text">Início</string>
