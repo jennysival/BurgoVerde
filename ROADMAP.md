@@ -9,15 +9,16 @@ O MVP do Burgo Verde será um aplicativo simples para incentivar o plantio de á
 ### ✅ *Concluído (branch: develop)*
 - [x] Tela de Onboarding
 - [x] Tela de Cadastro
+- [x] Tela de Login e Autenticação
+- [x] Tela de Postagem de Árvore Plantada (foto, nome)
+- [x] Tela de Perfil do Usuário
 
 ### 🚧 *Em andamento*
-- [ ] Tela de Login e Autenticação
 - [ ] Tela Inicial / Dashboard
+- [ ] Barra de Progresso da Meta de Plantios Coletiva
+- [ ] Link para formulário de feedback sobre o app
 
 ### 🔜 *A fazer*
-- [ ] Tela de Postagem de Árvore Plantada (foto, nome, progresso)
-- [ ] Barra de Progresso da Meta (30 árvores/mês)
-- [ ] Tela de Perfil do Usuário
 - [ ] Publicação na Play Store
 
 ---
@@ -28,6 +29,7 @@ O MVP do Burgo Verde será um aplicativo simples para incentivar o plantio de á
 - Notificações para incentivar novos plantios
 - Integração com mapas para marcar árvores plantadas
 - Dashboard mais detalhado sobre o impacto ambiental
+- Ranking e Gamificação entre os usuários
 
 ---
 
