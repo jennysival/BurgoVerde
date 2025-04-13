@@ -7,6 +7,8 @@
     <string name="bugoverde_my_plants_title">Meus Plantios</string>
     <string name="bugoverde_add_plant_title">Adicione um novo plantio</string>
     <string name="bugoverde_empty_plants_title">Plante sua primeira mudinha :)</string>
+    <string name="bugoverde_soon_title">Em Breve</string>
+    <string name="burgoverde_map_soon_description">Com nosso mapa interativo será possível: \n+ Visualizar onde as mudas foram plantadas; \n+ Descobrir locais disponíveis para plantio; \n+ Encontrar pontos de coleta de mudas; \n+ E muito mais!</string>
 
     <!-- Buttons Texts -->
     <string name="bugoverde_register_button_text">Cadastre-se</string>
