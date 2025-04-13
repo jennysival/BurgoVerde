@@ -5,19 +5,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.jennysival.burgoverde.R
 import com.jennysival.burgoverde.databinding.FragmentProfileBinding
 import com.jennysival.burgoverde.factory.ProfileViewModelFactory
 import com.jennysival.burgoverde.navigation.BurgoVerdeNavigator
 import com.jennysival.burgoverde.navigation.BurgoVerdeNavigatorImpl
-import com.jennysival.burgoverde.utils.IMAGE_PICKER_PATH
-import com.jennysival.burgoverde.utils.showSnackBar
+import com.jennysival.burgoverde.utils.helper.ImagePickerHelper
+import com.jennysival.burgoverde.utils.showToast
 import com.jennysival.burgoverde.utils.viewstate.ProfileViewState
 
 class ProfileFragment : Fragment() {
@@ -25,16 +25,10 @@ class ProfileFragment : Fragment() {
     private lateinit var viewModel: ProfileViewModel
     private lateinit var navigator: BurgoVerdeNavigator
 
-    private val pickImageLauncher =
-        registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-            uri?.let {
-                uploadProfileImage(it)
-            }
-        }
+    private lateinit var imagePicker: ImagePickerHelper
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
@@ -43,6 +37,9 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        imagePicker = ImagePickerHelper(this) { uri ->
+            uploadProfileImage(uri)
+        }
         initViewModel()
         initNavigator()
         observeProfileImage()
@@ -69,8 +66,7 @@ class ProfileFragment : Fragment() {
     private fun logoutClick() {
         binding.logoutBtn.setOnClickListener {
             viewModel.logout()
-            requireActivity()
-                .findNavController(R.id.home_nav_fragment)
+            requireActivity().findNavController(R.id.home_nav_fragment)
                 .navigate(R.id.onboardingFragment)
         }
     }
@@ -82,7 +78,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun pickImageFromGallery() {
-        pickImageLauncher.launch(IMAGE_PICKER_PATH)
+        imagePicker.pickImage()
     }
 
     private fun uploadProfileImage(uri: Uri) {
@@ -99,6 +95,7 @@ class ProfileFragment : Fragment() {
                 is ProfileViewState.Success -> {
                     loadImage(uri = state.data)
                 }
+
                 is ProfileViewState.Error -> {
                     loadImage(null)
                 }
@@ -109,10 +106,11 @@ class ProfileFragment : Fragment() {
             when (state) {
                 is ProfileViewState.Success -> {
                     loadImage(uri = state.data)
-                    showSnackBar(R.string.burgoverde_image_upload_success)
+                    showToast(R.string.burgoverde_image_upload_success)
                 }
+
                 is ProfileViewState.Error -> {
-                    showSnackBar(R.string.burgoverde_image_upload_error)
+                    showToast(R.string.burgoverde_image_upload_error)
                 }
             }
         }
@@ -120,19 +118,15 @@ class ProfileFragment : Fragment() {
 
     private fun loadImage(uri: String?) {
         Glide.with(this)
-            .load(uri.takeIf { !it.isNullOrBlank() })
-            .placeholder(R.drawable.ic_profile)
-            .error(R.drawable.ic_profile)
-            .circleCrop()
-            .transition(DrawableTransitionOptions.withCrossFade())
-            .into(binding.photoIv)
+            .load(uri.takeIf { !it.isNullOrBlank() }).placeholder(R.drawable.ic_profile)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            .error(R.drawable.ic_profile).circleCrop()
+            .transition(DrawableTransitionOptions.withCrossFade()).into(binding.photoIv)
     }
 
-    private fun showSnackBar(messageRes: Int) {
-        showSnackBar(
-            messageRes = messageRes,
-            view = binding.root,
-            context = requireContext()
+    private fun showToast(messageRes: Int) {
+        showToast(
+            messageRes = messageRes, context = requireContext()
         )
     }
 }
