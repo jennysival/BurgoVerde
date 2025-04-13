@@ -111,7 +111,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:lottie_autoPlay="true"
+                app:lottie_autoPlay="false"
+                app:lottie_loop="false"
                 app:lottie_fileName="growing-animation.json" />
 
             <com.google.android.material.progressindicator.CircularProgressIndicator
@@ -160,24 +161,16 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/addPlantTitleTv"
+                    android:id="@+id/yourPlantsTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/burgoverde_margin24"
-                    android:layout_marginTop="@dimen/burgoverde_margin24"
-                    android:layout_marginBottom="@dimen/burgoverde_margin10"
+                    android:layout_marginVertical="@dimen/burgoverde_margin24"
                     android:textAlignment="center"
                     android:textSize="@dimen/burgoverde_font_size16"
                     android:textStyle="bold"
                     tools:text="Você contribuiu com XX plantios!" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/loginBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/burgoverde_margin24"
-                    android:backgroundTint="@color/bugoverde_dark_green"
-                    android:text="@string/bugoverde_plant_button_text" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
