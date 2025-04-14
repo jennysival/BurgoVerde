@@ -1,5 +1,6 @@
 package com.jennysival.burgoverde.ui.home
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,9 @@ class HomeFragment : Fragment() {
     private lateinit var viewModel: HomeViewModel
     private lateinit var navigator: BurgoVerdeNavigator
     private lateinit var sharedPrefs: SharedPreferencesHelper
+
+    private var isAnimationCompleted = false
+    private var currentAnimator: ValueAnimator? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -64,12 +68,11 @@ class HomeFragment : Fragment() {
         viewModel.plantsCountState.observe(this.viewLifecycleOwner) {
             when (it) {
                 is PlantViewState.Success -> {
-                    val groupGoal = 30
                     val groupTotal = it.data.total
                     val userTotal = it.data.user
 
-                    setUpAnimation(groupTotal = groupTotal, groupGoal = groupGoal)
-                    setUpGroupProgress(groupTotal = groupTotal, groupGoal = groupGoal)
+                    setUpAnimation(groupTotal = groupTotal)
+                    setUpGroupProgress(groupTotal = groupTotal)
                     setUpUserProgress(userTotal = userTotal)
                 }
 
@@ -103,18 +106,40 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun setUpAnimation(groupTotal: Int, groupGoal: Int) {
-        val animationProgress = (groupTotal.toFloat() / groupGoal.toFloat()).coerceIn(0f, 1f)
-        binding.animationView.setMinAndMaxProgress(0f, 1f)
-        binding.animationView.progress = animationProgress
-        binding.animationView.playAnimation()
+    private fun setUpAnimation(groupTotal: Int) {
+        val animationProgress = (groupTotal.toFloat() / GROUP_GOAL_INT.toFloat()).coerceIn(
+            ANIMATION_MIN_PROGRESS, ANIMATION_MAX_PROGRESS)
+        currentAnimator?.cancel()
+
+        binding.animationView.apply {
+            setMinAndMaxProgress(ANIMATION_MIN_PROGRESS, ANIMATION_MAX_PROGRESS)
+
+            if (groupTotal >= GROUP_GOAL_INT) {
+                if (!isAnimationCompleted) {
+                    repeatCount = ANIMATION_REPEAT_COUNT
+                    playAnimation()
+                    isAnimationCompleted = true
+                }
+            } else {
+                isAnimationCompleted = false
+                repeatCount = ANIMATION_REPEAT_COUNT
+
+                currentAnimator = ValueAnimator.ofFloat(progress, animationProgress).apply {
+                    duration = ANIMATION_DURATION_MS
+                    addUpdateListener { animation ->
+                        progress = animation.animatedValue as Float
+                    }
+                    start()
+                }
+            }
+        }
     }
 
-    private fun setUpGroupProgress(groupTotal: Int, groupGoal: Int) {
+    private fun setUpGroupProgress(groupTotal: Int) {
         binding.groupGoalProgressionTv.text =
-            getString(R.string.burgoverde_group_progress, groupTotal, groupGoal)
-        binding.plantTrackerPb.max = groupGoal
-        binding.plantTrackerPb.progress = groupTotal.coerceAtMost(groupGoal)
+            getString(R.string.burgoverde_group_progress, groupTotal, GROUP_GOAL_INT)
+        binding.plantTrackerPb.max = GROUP_GOAL_INT
+        binding.plantTrackerPb.progress = groupTotal.coerceAtMost(GROUP_GOAL_INT)
     }
 
     private fun setUpUserProgress(userTotal: Int) {
@@ -131,5 +156,13 @@ class HomeFragment : Fragment() {
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC).error(R.drawable.ic_profile)
             .circleCrop().transition(DrawableTransitionOptions.withCrossFade())
             .into(binding.photoIv)
+    }
+
+    companion object {
+        private const val GROUP_GOAL_INT = 30
+        private const val ANIMATION_REPEAT_COUNT = 0
+        private const val ANIMATION_DURATION_MS = 2000L
+        private const val ANIMATION_MIN_PROGRESS = 0f
+        private const val ANIMATION_MAX_PROGRESS = 1f
     }
 }
