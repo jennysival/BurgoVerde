@@ -7,7 +7,6 @@ Burgo Verde é um aplicativo mobile criado para engajar a comunidade do bairro B
 - ✅ Perfil do usuário com nome e foto
 - ✅ Registro de árvores plantadas com foto
 - ✅ Barra de progresso mostrando a meta de plantios coletiva
-- ✅ Feed com árvores registradas pela comunidade
 
 ## 📅 Roadmap
 Confira o [Roadmap do projeto](./ROADMAP.md) para acompanhar o status e saber o que vem por aí!
@@ -22,6 +21,7 @@ Confira o [Roadmap do projeto](./ROADMAP.md) para acompanhar o status e saber o 
 - Room Database (para armazenamento local)
 - Compressor (para comprimir as imagens)
 - Glide (para renderizar as imagens)
+- Lottie (para animação do progresso da meta coletiva)
 
 ## 🚀 Contribuição
 Quer ajudar o projeto? Veja as Issues abertas e o Roadmap para saber o que está em andamento!
