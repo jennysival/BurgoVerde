@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/bugoverde_home_menu_text" />
+
+    <item
+        android:id="@+id/nav_plants"
+        android:icon="@drawable/ic_plant"
+        android:title="@string/bugoverde_plant_menu_text" />
+
+    <item
+        android:id="@+id/nav_map"
+        android:icon="@drawable/ic_map"
+        android:title="@string/bugoverde_map_menu_text" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/bugoverde_profile_menu_text" />
+</menu>

@@ -1,0 +1,51 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemCardView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/burgoverde_margin50"
+    android:layout_marginVertical="@dimen/burgoverde_margin50"
+    android:backgroundTint="@color/bugoverde_beige"
+    android:padding="@dimen/burgoverde_margin50"
+    app:cardCornerRadius="@dimen/burgoverde_size24">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/plantImageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/burgoverde_size500"
+            android:contentDescription="@string/bugoverde_content_description_placeholder"
+            android:scaleType="centerCrop"
+            android:src="@drawable/burgo_image" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/plantNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/burgoverde_margin24"
+            android:layout_marginVertical="@dimen/burgoverde_margin24"
+            android:textAlignment="center"
+            android:textSize="@dimen/burgoverde_font_size14"
+            android:textStyle="bold"
+            tools:text="@string/bugoverde_content_description_placeholder" />
+
+        <ImageView
+            android:id="@+id/deleteButton"
+            android:layout_width="@dimen/burgoverde_size40"
+            android:layout_height="@dimen/burgoverde_size40"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/burgoverde_margin24"
+            android:contentDescription="@string/bugoverde_content_description_placeholder"
+            android:padding="@dimen/burgoverde_margin10"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_delete" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

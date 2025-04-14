@@ -1,3 +1,73 @@
 <resources>
-    <string name="app_name">BurgoVerde</string>
+    <!-- General Texts -->
+    <string name="bugoverde_app_name">BurgoVerde</string>
+    <string name="bugoverde_app_title">Conecte-se com a natureza no Burgo Paulista</string>
+    <string name="bugoverde_app_subtitle">Plante árvores, registre conquistas e veja seu bairro mais verde!</string>
+    <string name="bugoverde_app_info">Este app foi desenvolvido com carinho para incentivar o cuidado com o meio ambiente no Burgo Paulista. Versão: 1.0.0. Última atualização: Abril de 2025. Se encontrar algum problema conta pra gente! Ou manda um elogio também, a gente adora! </string>
+    <string name="bugoverde_my_plants_title">Meus Plantios</string>
+    <string name="bugoverde_add_plant_title">Adicione um novo plantio</string>
+    <string name="bugoverde_empty_plants_title">Plante sua primeira mudinha :)</string>
+    <string name="bugoverde_soon_title">Em Breve</string>
+    <string name="burgoverde_map_soon_description">Com nosso mapa interativo será possível: \n+ Visualizar onde as mudas foram plantadas; \n+ Descobrir locais disponíveis para plantio; \n+ Encontrar pontos de coleta de mudas; \n+ E muito mais!</string>
+    <string name="bugoverde_lets_plant_together_title">Vamos plantar juntos?</string>
+    <string name="bugoverde_group_goal_title">Meta Coletiva</string>
+    <string name="bugoverde_group_goal_subtitle">Nossa meta inicial é de 30 plantios!</string>
+    <string name="burgoverde_group_progress"> %1$d/%2$d </string>
+    <string name="burgoverde_user_contribution">Você contribuiu com %1$d plantios!</string>
+    <string name="burgoverde_hello_user">Olá, %1$s!</string>
+
+    <!-- Buttons Texts -->
+    <string name="bugoverde_register_button_text">Cadastre-se</string>
+    <string name="bugoverde_login_button_text">Entre</string>
+    <string name="bugoverde_reset_password_button_text">Esqueceu a senha?</string>
+    <string name="bugoverde_send_button_text">Enviar</string>
+    <string name="bugoverde_dismiss_button_text">Cancelar</string>
+    <string name="bugoverde_logout_button_text">Sair</string>
+    <string name="bugoverde_change_photo_button_text">Trocar Foto</string>
+    <string name="bugoverde_close_button_text">Fechar</string>
+    <string name="bugoverde_delete_button_text">Excluir</string>
+    <string name="bugoverde_send_feedback_button_text">Enviar feedback</string>
+
+    <!-- Menu Texts -->
+    <string name="bugoverde_home_menu_text">Início</string>
+    <string name="bugoverde_profile_menu_text">Perfil</string>
+    <string name="bugoverde_map_menu_text">Navegue</string>
+    <string name="bugoverde_plant_menu_text">Plante</string>
+
+    <!-- Accessibility Texts -->
+    <string name="bugoverde_content_description_logo">Burgo Verde</string>
+    <string name="bugoverde_content_description_onboarding_banner">Colagens sobre natureza acima de uma foto do bairro</string>
+    <string name="bugoverde_content_description_placeholder">imagem</string>
+    <string name="bugoverde_content_description_add_photo">Adicionar foto</string>
+
+    <!-- Hints Texts -->
+    <string name="bugoverde_name_hint">Nome</string>
+    <string name="bugoverde_age_hint">Idade</string>
+    <string name="bugoverde_email_hint">E-mail</string>
+    <string name="bugoverde_password_hint">Senha</string>
+    <string name="bugoverde_confirm_password_hint">Repita a Senha</string>
+    <string name="bugoverde_registered_email_hint">Digite seu e-mail cadastrado</string>
+    <string name="bugoverde_plant_name_hint">Nome da planta (ex.: Árvore Ipê)</string>
+
+    <!-- Alert Texts -->
+    <string name="burgoverde_success_register_text">Registro feito com sucesso!</string>
+    <string name="burgoverde_reset_password_text">Redefinir Senha</string>
+    <string name="burgoverde_email_sent_text">E-mail enviado!</string>
+    <string name="burgoverde_image_upload_success">Foto adicionada com sucesso!</string>
+    <string name="burgoverde_wish_to_delete">Deseja excluir?</string>
+    <string name="burgoverde_plant_removal_message">A %s será removida permanentemente.</string>
+
+    <!-- Error Texts -->
+    <string name="burgoverde_ops_text">Ops, tente novamente!</string>
+    <string name="burgoverde_error_required_field">Este campo é obrigatório</string>
+    <string name="burgoverde_error_password_mismatch">As senhas devem ser iguais</string>
+    <string name="burgoverde_unknown_password">Senha Incorreta!</string>
+    <string name="burgoverde_unknown_email">E-mail não cadastrado!</string>
+    <string name="burgoverde_wrong_email_or_password">E-mail ou senha inválidos</string>
+    <string name="burgoverde_invalid_email">E-mail inválido!</string>
+    <string name="burgoverde_duplicated_email">Este e-mail já está cadastrado!</string>
+    <string name="burgoverde_weak_password">Senha insegura, por favor escolha uma senha forte!</string>
+    <string name="burgoverde_image_upload_error">Erro ao adicionar a foto, tente novamente</string>
+    <string name="burgoverde_image_load_error">Ops, houve um erro ao exibir sua foto</string>
+    <string name="burgoverde_no_browser_error">Ops, Não encontramos um navegador disponível</string>
 </resources>

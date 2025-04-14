@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/burgoverde_margin24"
+        android:paddingTop="@dimen/burgoverde_margin24"
+        android:paddingEnd="@dimen/burgoverde_margin16"
+        android:paddingBottom="@dimen/burgoverde_margin24">
+
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/burgoverde_margin16"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/helloTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/burgoverde_margin16"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:textColor="@color/bugoverde_dark_green"
+                android:textSize="@dimen/burgoverde_font_size16"
+                android:textStyle="bold"
+                tools:text="Olá, Pessoa" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/photoIv"
+                android:layout_width="@dimen/burgoverde_size60"
+                android:layout_height="@dimen/burgoverde_size60"
+                android:background="@color/bugoverde_beige"
+                android:contentDescription="@string/bugoverde_content_description_logo"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/CircleImageView" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/burgoverde_size1"
+            android:layout_marginTop="@dimen/burgoverde_margin16"
+            android:background="@color/bugoverde_beige"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerLayout" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/letsPlantTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/burgoverde_margin24"
+            android:text="@string/bugoverde_lets_plant_together_title"
+            android:textColor="@color/bugoverde_light_green"
+            android:textSize="@dimen/burgoverde_font_size24"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/groupGoalTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/burgoverde_margin10"
+            android:text="@string/bugoverde_group_goal_title"
+            android:textColor="@color/bugoverde_dark_green"
+            android:textSize="@dimen/burgoverde_font_size20"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/letsPlantTitleTv" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/groupGoalSubtitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/burgoverde_margin4"
+            android:layout_marginBottom="@dimen/burgoverde_margin24"
+            android:text="@string/bugoverde_group_goal_subtitle"
+            android:textColor="@color/bugoverde_dark_green"
+            android:textSize="@dimen/burgoverde_font_size16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/groupGoalTitleTv" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/progressLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/burgoverde_margin24"
+            android:layout_marginBottom="@dimen/burgoverde_margin24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/groupGoalSubtitleTv">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationView"
+                android:layout_width="@dimen/burgoverde_size150"
+                android:layout_height="@dimen/burgoverde_size250"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="false"
+                app:lottie_loop="false"
+                app:lottie_fileName="growing-animation.json" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/plantTrackerPb"
+                android:layout_width="@dimen/burgoverde_size200"
+                android:layout_height="@dimen/burgoverde_size200"
+                app:indicatorColor="@color/bugoverde_light_green"
+                app:indicatorSize="@dimen/burgoverde_size200"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/animationView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:trackColor="@color/bugoverde_dark_green"
+                app:trackThickness="@dimen/burgoverde_size20" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/groupGoalProgressionTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/bugoverde_dark_green"
+                android:textSize="@dimen/burgoverde_font_size16"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/plantTrackerPb"
+                app:layout_constraintEnd_toEndOf="@id/plantTrackerPb"
+                app:layout_constraintStart_toStartOf="@id/plantTrackerPb"
+                app:layout_constraintTop_toTopOf="@id/plantTrackerPb"
+                tools:text="02/30" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/burgoverde_margin24"
+            android:layout_marginTop="@dimen/burgoverde_margin24"
+            android:backgroundTint="@color/bugoverde_beige"
+            app:cardCornerRadius="@dimen/burgoverde_size24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progressLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/yourPlantsTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/burgoverde_margin24"
+                    android:layout_marginVertical="@dimen/burgoverde_margin24"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/burgoverde_font_size16"
+                    android:textStyle="bold"
+                    tools:text="Você contribuiu com XX plantios!" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

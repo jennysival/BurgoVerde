@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_map"
+        android:contentDescription="@string/bugoverde_content_description_placeholder"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/myPlantsTitleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/burgoverde_margin50"
+        android:layout_marginTop="@dimen/burgoverde_margin24"
+        android:text="@string/bugoverde_soon_title"
+        android:textAlignment="center"
+        android:textColor="@color/bugoverde_dark_green"
+        android:textSize="@dimen/burgoverde_font_size24"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/subtitleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/burgoverde_margin24"
+        android:layout_marginTop="@dimen/burgoverde_margin10"
+        android:text="@string/burgoverde_map_soon_description"
+        android:textSize="@dimen/burgoverde_font_size16"
+        android:textAlignment="textStart" />
+
+</LinearLayout>
