@@ -8,4 +8,6 @@ interface PlantRepository {
     suspend fun syncPlantsFromFirestore(): Result<Unit>
     suspend fun getAllPlants(): List<PlantModel>
     suspend fun deletePlant(plant: PlantModel)
+    suspend fun getCollectivePlantCount(): Result<Int>
+    suspend fun getUserPlantCount(userId: String): Result<Int>
 }

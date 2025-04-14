@@ -6,10 +6,11 @@ import com.jennysival.burgoverde.data.room.PlantDatabase.Companion.PLANTS_TABLE_
 
 @Entity(tableName = PLANTS_TABLE_NAME)
 data class PlantModel(
-    @PrimaryKey val id: String,
-    val name: String,
-    val firebaseUrl: String,
-    val localUri: String,
-    val timestamp: Long = System.currentTimeMillis(),
-    val author: String
+    @PrimaryKey var id: String = "",
+    var name: String = "",
+    var firebaseUrl: String = "",
+    var localUri: String = "",
+    var timestamp: Long = System.currentTimeMillis(),
+    var author: String = "",
+    var userId: String? = null
 )

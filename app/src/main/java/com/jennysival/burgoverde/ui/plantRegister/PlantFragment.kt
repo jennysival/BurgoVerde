@@ -2,6 +2,7 @@ package com.jennysival.burgoverde.ui.plantRegister
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,8 +60,6 @@ class PlantFragment : Fragment() {
         initObserver()
         setUpRecyclerView()
         onAddPlantClick()
-
-        viewModel.getPlants()
         viewModel.syncPlants()
     }
 
@@ -72,6 +71,7 @@ class PlantFragment : Fragment() {
 
     private fun initObserver() {
         observeLoading()
+        observeSync()
         observeUpload()
         observePlantList()
     }
@@ -97,7 +97,7 @@ class PlantFragment : Fragment() {
                             messageRes = R.string.burgoverde_image_upload_success,
                             context = requireContext()
                         )
-                        viewModel.getPlants()
+                        viewModel.syncPlants()
                         binding.plantInputLayout.editText?.text?.clear()
                         viewModel.clearUploadState()
                     }
@@ -122,11 +122,11 @@ class PlantFragment : Fragment() {
         viewModel.plantListState.observe(this.viewLifecycleOwner) {
             when (it) {
                 is PlantViewState.Success -> {
-                    plantsAdapter.updatePlants(it.data)
-                    binding.emptyPlantsTv.visibility = View.GONE
-                    binding.rvPlants.visibility = View.VISIBLE
-                    binding.rvPlants.scrollToPosition(0)
-                    viewModel.clearListState()
+                        plantsAdapter.updatePlants(it.data)
+                        binding.emptyPlantsTv.visibility = View.GONE
+                        binding.rvPlants.visibility = View.VISIBLE
+                        binding.rvPlants.scrollToPosition(0)
+                        viewModel.clearListState()
                 }
 
                 is PlantViewState.Error -> {
@@ -139,6 +139,22 @@ class PlantFragment : Fragment() {
                     //do nothing
                 }
 
+            }
+        }
+    }
+
+    private fun observeSync() {
+        viewModel.syncState.observe(this.viewLifecycleOwner) {
+            when (it) {
+                is PlantViewState.Success -> {
+                    Log.d("SYNC_SUCCESS", "Sync entre Firestore e Room feita com sucesso")
+                }
+                is PlantViewState.Error -> {
+                    Log.d("SYNC_ERROR", "Erro na Sync entre Firestore e Room feito com sucesso")
+                }
+                is PlantViewState.None -> {
+                    //do nothing
+                }
             }
         }
     }

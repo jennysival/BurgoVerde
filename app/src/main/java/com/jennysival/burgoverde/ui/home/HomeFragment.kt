@@ -1,19 +1,33 @@
 package com.jennysival.burgoverde.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.jennysival.burgoverde.R
 import com.jennysival.burgoverde.databinding.FragmentHomeBinding
+import com.jennysival.burgoverde.factory.HomeViewModelFactory
+import com.jennysival.burgoverde.navigation.BurgoVerdeNavigator
+import com.jennysival.burgoverde.navigation.BurgoVerdeNavigatorImpl
+import com.jennysival.burgoverde.utils.helper.SharedPreferencesHelper
+import com.jennysival.burgoverde.utils.showToast
+import com.jennysival.burgoverde.utils.viewstate.PlantViewState
+import com.jennysival.burgoverde.utils.viewstate.ProfileViewState
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var viewModel: HomeViewModel
+    private lateinit var navigator: BurgoVerdeNavigator
+    private lateinit var sharedPrefs: SharedPreferencesHelper
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
@@ -22,5 +36,100 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        sharedPrefs = SharedPreferencesHelper(requireContext())
+        initViewModel()
+        initNavigator()
+        initObserver()
+        setUpHeader()
+        viewModel.getProfilePhoto()
+        sharedPrefs.getUserId()?.let { viewModel.getPlantsCount(it) }
+    }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProvider(
+            this, HomeViewModelFactory(requireActivity())
+        )[HomeViewModel::class.java]
+    }
+
+    private fun initNavigator() {
+        navigator = BurgoVerdeNavigatorImpl(this)
+    }
+
+    private fun initObserver() {
+        observePlantCount()
+        observeProfilePhoto()
+    }
+
+    private fun observePlantCount() {
+        viewModel.plantsCountState.observe(this.viewLifecycleOwner) {
+            when (it) {
+                is PlantViewState.Success -> {
+                    val groupGoal = 30
+                    val groupTotal = it.data.total
+                    val userTotal = it.data.user
+
+                    setUpAnimation(groupTotal = groupTotal, groupGoal = groupGoal)
+                    setUpGroupProgress(groupTotal = groupTotal, groupGoal = groupGoal)
+                    setUpUserProgress(userTotal = userTotal)
+                }
+
+                is PlantViewState.Error -> {
+                    showToast(
+                        messageRes = R.string.burgoverde_ops_text, context = requireContext()
+                    )
+                }
+
+                is PlantViewState.None -> {
+                    //do nothing
+                }
+            }
+        }
+    }
+
+    private fun observeProfilePhoto() {
+        viewModel.profilePhotoState.observe(this.viewLifecycleOwner) {
+            when (it) {
+                is ProfileViewState.Success -> {
+                    loadProfilePhoto(it.data)
+                }
+
+                is ProfileViewState.Error -> {
+                    showToast(
+                        messageRes = R.string.burgoverde_image_load_error,
+                        context = requireContext()
+                    )
+                }
+            }
+        }
+    }
+
+    private fun setUpAnimation(groupTotal: Int, groupGoal: Int) {
+        val animationProgress = (groupTotal.toFloat() / groupGoal.toFloat()).coerceIn(0f, 1f)
+        binding.animationView.setMinAndMaxProgress(0f, 1f)
+        binding.animationView.progress = animationProgress
+        binding.animationView.playAnimation()
+    }
+
+    private fun setUpGroupProgress(groupTotal: Int, groupGoal: Int) {
+        binding.groupGoalProgressionTv.text =
+            getString(R.string.burgoverde_group_progress, groupTotal, groupGoal)
+        binding.plantTrackerPb.max = groupGoal
+        binding.plantTrackerPb.progress = groupTotal.coerceAtMost(groupGoal)
+    }
+
+    private fun setUpUserProgress(userTotal: Int) {
+        binding.yourPlantsTv.text = getString(R.string.burgoverde_user_contribution, userTotal)
+    }
+
+    private fun setUpHeader() {
+        val userName = sharedPrefs.getUserName()
+        binding.helloTv.text = getString(R.string.burgoverde_hello_user, userName)
+    }
+
+    private fun loadProfilePhoto(uri: String?) {
+        Glide.with(this).load(uri.takeIf { !it.isNullOrBlank() })
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC).error(R.drawable.ic_profile)
+            .circleCrop().transition(DrawableTransitionOptions.withCrossFade())
+            .into(binding.photoIv)
     }
 }

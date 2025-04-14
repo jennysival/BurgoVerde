@@ -33,7 +33,7 @@ class UserUseCase(
         }
     }
 
-    fun logout() {
+    suspend fun logout() {
         userRepository.logout()
     }
 

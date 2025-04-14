@@ -21,4 +21,7 @@ interface PlantDao {
 
     @Delete
     suspend fun deletePlant(plantModel: PlantModel)
+
+    @Query("DELETE FROM plants_table")
+    suspend fun clearAllPlants()
 }

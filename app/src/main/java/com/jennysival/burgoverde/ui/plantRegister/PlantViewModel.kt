@@ -25,6 +25,9 @@ class PlantViewModel(
     private val _plantListState = MutableLiveData<PlantViewState<List<PlantModel>>>()
     val plantListState: LiveData<PlantViewState<List<PlantModel>>> = _plantListState
 
+    private val _syncState = MutableLiveData<PlantViewState<Unit>>()
+    val syncState: LiveData<PlantViewState<Unit>> = _syncState
+
     fun savePlant(context: Context, plant: PlantModel, imageUri: Uri) {
         _loadingState.value = true
         viewModelScope.launch {
@@ -40,7 +43,7 @@ class PlantViewModel(
         }
     }
 
-    fun getPlants() {
+    private fun getPlants() {
         viewModelScope.launch {
             try {
                 val plantsList = useCase.getAllPlants()
@@ -53,7 +56,15 @@ class PlantViewModel(
 
     fun syncPlants() {
         viewModelScope.launch {
-            useCase.syncPlants()
+            try {
+                val result = useCase.syncPlants()
+                _syncState.value = result
+                if (result is PlantViewState.Success) {
+                    getPlants()
+                }
+            } catch (e:Exception) {
+                _syncState.value = PlantViewState.Error(e)
+            }
         }
     }
 

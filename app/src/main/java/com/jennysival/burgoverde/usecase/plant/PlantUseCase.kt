@@ -1,17 +1,18 @@
 package com.jennysival.burgoverde.usecase.plant
 
 import android.net.Uri
+import com.jennysival.burgoverde.data.PlantCount
 import com.jennysival.burgoverde.data.PlantModel
 import com.jennysival.burgoverde.repository.plant.PlantRepository
 import com.jennysival.burgoverde.utils.viewstate.PlantViewState
 
 class PlantUseCase(
-    private val repository: PlantRepository
+    private val plantRepository: PlantRepository
 ) {
 
     suspend fun savePlant(plant: PlantModel, imageUri: Uri): PlantViewState<Unit> {
         return try {
-            val result = repository.savePlant(plant, imageUri)
+            val result = plantRepository.savePlant(plant, imageUri)
             result.fold(onSuccess = { uploadResult -> PlantViewState.Success(uploadResult) },
                 onFailure = { exception -> PlantViewState.Error(exception) })
         } catch (e: Exception) {
@@ -21,12 +22,8 @@ class PlantUseCase(
 
     suspend fun getAllPlants(): PlantViewState<List<PlantModel>> {
         return try {
-            val plantsList = repository.getAllPlants()
-            if (plantsList.isEmpty()) {
-                PlantViewState.Error(Exception())
-            } else {
-                PlantViewState.Success(plantsList)
-            }
+            val plantsList = plantRepository.getAllPlants()
+            PlantViewState.Success(plantsList)
         } catch (e: Exception) {
             PlantViewState.Error(Exception(e.message))
         }
@@ -34,16 +31,41 @@ class PlantUseCase(
 
     suspend fun syncPlants(): PlantViewState<Unit> {
         return try {
-            val result = repository.syncPlantsFromFirestore()
-            result.fold(onSuccess = { PlantViewState.Success(Unit) },
-                onFailure = { PlantViewState.Error(it) })
+            val result = plantRepository.syncPlantsFromFirestore()
+            result.fold(
+                onSuccess = { PlantViewState.Success(Unit) },
+                onFailure = { exception ->
+                    PlantViewState.Error(exception)
+                }
+            )
         } catch (e: Exception) {
             PlantViewState.Error(e)
         }
     }
 
     suspend fun deletePlant(plant: PlantModel) {
-        repository.deletePlant(plant)
+        plantRepository.deletePlant(plant)
+    }
+
+    suspend fun getPlantCount(userId: String): PlantViewState<PlantCount> {
+        return try {
+            val totalCount = plantRepository.getCollectivePlantCount()
+            val userCount = plantRepository.getUserPlantCount(userId)
+
+            if (totalCount.isSuccess && userCount.isSuccess) {
+                PlantViewState.Success(
+                    PlantCount(
+                        total = totalCount.getOrDefault(0),
+                        user = userCount.getOrDefault(0)
+                    )
+                )
+            } else {
+                val exception = totalCount.exceptionOrNull() ?: userCount.exceptionOrNull()
+                PlantViewState.Error(exception ?: Exception())
+            }
+        } catch (e: Exception) {
+            PlantViewState.Error(e)
+        }
     }
 
 }
