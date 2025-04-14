@@ -11,7 +11,7 @@
     <string name="burgoverde_map_soon_description">Com nosso mapa interativo será possível: \n+ Visualizar onde as mudas foram plantadas; \n+ Descobrir locais disponíveis para plantio; \n+ Encontrar pontos de coleta de mudas; \n+ E muito mais!</string>
     <string name="bugoverde_lets_plant_together_title">Vamos plantar juntos?</string>
     <string name="bugoverde_group_goal_title">Meta Coletiva</string>
-    <string name="bugoverde_group_goal_subtitle">Nossa meta do mês é de 30 plantios!</string>
+    <string name="bugoverde_group_goal_subtitle">Nossa meta inicial é de 30 plantios!</string>
     <string name="burgoverde_group_progress"> %1$d/%2$d </string>
     <string name="burgoverde_user_contribution">Você contribuiu com %1$d plantios!</string>
     <string name="burgoverde_hello_user">Olá, %1$s!</string>
