@@ -55,7 +55,9 @@ class ProfileViewModel(private val useCase: UserUseCase) : ViewModel() {
     }
 
     fun logout() {
-        useCase.logout()
+        viewModelScope.launch {
+            useCase.logout()
+        }
     }
 
     fun getUserName(): String {

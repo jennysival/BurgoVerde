@@ -4,6 +4,7 @@ import android.net.Uri
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import com.jennysival.burgoverde.data.room.PlantDao
 import com.jennysival.burgoverde.repository.AuthRepository.Companion.USERS_COLLECTION
 import com.jennysival.burgoverde.repository.AuthRepository.Companion.USER_UID_ERROR
 import com.jennysival.burgoverde.utils.IMAGE_FORMAT_SUFFIX
@@ -14,7 +15,8 @@ class UserRepository(
     private val auth: FirebaseAuth,
     private val storage: FirebaseStorage,
     private val db: FirebaseFirestore,
-    private val sharedPrefs: SharedPreferencesHelper
+    private val sharedPrefs: SharedPreferencesHelper,
+    private val plantDao: PlantDao
 ) {
 
     suspend fun uploadProfileImage(uri: Uri): Result<String> {
@@ -48,14 +50,14 @@ class UserRepository(
         }
     }
 
+    suspend fun logout() {
+        auth.signOut()
+        plantDao.clearAllPlants()
+    }
+
     fun getUserName(): String? = sharedPrefs.getUserName()
 
     fun getCachedProfileImageUrl(): String? = sharedPrefs.getProfileImageUrl()
-
-
-    fun logout() {
-        auth.signOut()
-    }
 
     companion object {
         private const val PROFILE_IMAGE_KEY = "profileImageUrl"

@@ -13,6 +13,7 @@ lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
 composeBom = "2024.04.01"
 appcompat = "1.7.0"
+lottie = "6.6.6"
 navigationFragmentKtx = "2.8.9"
 coreSplashscreen = "1.0.1"
 firebaseStorageKtx = "21.0.1"
@@ -48,6 +49,7 @@ androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-view
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment", version.ref = "navigationFragmentKtx" }
 firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage-ktx", version.ref = "firebaseStorageKtx" }
+lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 zelory-compressor = { module = "id.zelory:compressor", version.ref = "compressorVersion" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomCompiler" }

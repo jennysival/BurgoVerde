@@ -1,5 +1,6 @@
 package com.jennysival.burgoverde.ui.profile
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import com.jennysival.burgoverde.databinding.FragmentProfileBinding
 import com.jennysival.burgoverde.factory.ProfileViewModelFactory
 import com.jennysival.burgoverde.navigation.BurgoVerdeNavigator
 import com.jennysival.burgoverde.navigation.BurgoVerdeNavigatorImpl
+import com.jennysival.burgoverde.utils.GOOGLE_FORMS_URL
 import com.jennysival.burgoverde.utils.helper.ImagePickerHelper
 import com.jennysival.burgoverde.utils.showToast
 import com.jennysival.burgoverde.utils.viewstate.ProfileViewState
@@ -47,6 +49,7 @@ class ProfileFragment : Fragment() {
         showUserName()
         changePhotoClick()
         logoutClick()
+        setUpFeedbackClick()
     }
 
     private fun initViewModel() {
@@ -128,5 +131,21 @@ class ProfileFragment : Fragment() {
         showToast(
             messageRes = messageRes, context = requireContext()
         )
+    }
+
+    private fun setUpFeedbackClick() {
+        binding.feedbackBtn.setOnClickListener {
+            openGoogleForms()
+        }
+    }
+
+    private fun openGoogleForms() {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLE_FORMS_URL))
+
+        if (intent.resolveActivity(requireActivity().packageManager) != null) {
+            startActivity(intent)
+        } else {
+            showToast(messageRes = R.string.burgoverde_no_browser_error, context = requireContext())
+        }
     }
 }

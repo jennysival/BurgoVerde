@@ -10,26 +10,35 @@ import com.google.firebase.storage.storage
 import com.jennysival.burgoverde.data.room.PlantDao
 import com.jennysival.burgoverde.data.room.PlantDatabase
 import com.jennysival.burgoverde.repository.UserRepository
-import com.jennysival.burgoverde.ui.profile.ProfileViewModel
+import com.jennysival.burgoverde.repository.plant.PlantRepositoryImpl
+import com.jennysival.burgoverde.ui.home.HomeViewModel
 import com.jennysival.burgoverde.usecase.UserUseCase
+import com.jennysival.burgoverde.usecase.plant.PlantUseCase
 import com.jennysival.burgoverde.utils.helper.SharedPreferencesHelper
 
-class ProfileViewModelFactory(context: Context) : ViewModelProvider.Factory {
+class HomeViewModelFactory(context: Context) : ViewModelProvider.Factory {
     private val dao: PlantDao = PlantDatabase.getPlantDatabase(context).plantDao()
     private val auth = Firebase.auth
     private val storage = Firebase.storage
-    private val db = Firebase.firestore
-    private val sharedPrefs = SharedPreferencesHelper(context = context)
-    private val repository = UserRepository(
+    private val firestore = Firebase.firestore
+    private val sharedPrefs = SharedPreferencesHelper(context)
+    private val plantRepository = PlantRepositoryImpl(
+        storage = storage,
+        plantDao = dao,
+        firestore = firestore,
+        auth = auth
+        )
+    private val userRepository = UserRepository(
         auth = auth,
         storage = storage,
-        db = db,
+        db = firestore,
         sharedPrefs = sharedPrefs,
         plantDao = dao
     )
-    private val useCase = UserUseCase(userRepository = repository)
+    private val plantUseCase = PlantUseCase(plantRepository = plantRepository)
+    private val userUseCase = UserUseCase(userRepository = userRepository)
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return ProfileViewModel(useCase = useCase) as T
+        return HomeViewModel(plantUseCase = plantUseCase, userUseCase = userUseCase) as T
     }
 }

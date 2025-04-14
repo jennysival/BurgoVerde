@@ -9,6 +9,12 @@
     <string name="bugoverde_empty_plants_title">Plante sua primeira mudinha :)</string>
     <string name="bugoverde_soon_title">Em Breve</string>
     <string name="burgoverde_map_soon_description">Com nosso mapa interativo será possível: \n+ Visualizar onde as mudas foram plantadas; \n+ Descobrir locais disponíveis para plantio; \n+ Encontrar pontos de coleta de mudas; \n+ E muito mais!</string>
+    <string name="bugoverde_lets_plant_together_title">Vamos plantar juntos?</string>
+    <string name="bugoverde_group_goal_title">Meta Coletiva</string>
+    <string name="bugoverde_group_goal_subtitle">Nossa meta inicial é de 30 plantios!</string>
+    <string name="burgoverde_group_progress"> %1$d/%2$d </string>
+    <string name="burgoverde_user_contribution">Você contribuiu com %1$d plantios!</string>
+    <string name="burgoverde_hello_user">Olá, %1$s!</string>
 
     <!-- Buttons Texts -->
     <string name="bugoverde_register_button_text">Cadastre-se</string>
@@ -20,6 +26,7 @@
     <string name="bugoverde_change_photo_button_text">Trocar Foto</string>
     <string name="bugoverde_close_button_text">Fechar</string>
     <string name="bugoverde_delete_button_text">Excluir</string>
+    <string name="bugoverde_send_feedback_button_text">Enviar feedback</string>
 
     <!-- Menu Texts -->
     <string name="bugoverde_home_menu_text">Início</string>
@@ -61,4 +68,6 @@
     <string name="burgoverde_duplicated_email">Este e-mail já está cadastrado!</string>
     <string name="burgoverde_weak_password">Senha insegura, por favor escolha uma senha forte!</string>
     <string name="burgoverde_image_upload_error">Erro ao adicionar a foto, tente novamente</string>
+    <string name="burgoverde_image_load_error">Ops, houve um erro ao exibir sua foto</string>
+    <string name="burgoverde_no_browser_error">Ops, Não encontramos um navegador disponível</string>
 </resources>

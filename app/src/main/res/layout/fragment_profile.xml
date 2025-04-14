@@ -66,5 +66,16 @@
             android:textSize="@dimen/burgoverde_font_size12"
             android:textAlignment="center"
             android:textColor="@color/bugoverde_dark_green"/>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:id="@+id/feedbackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="@dimen/burgoverde_font_size11"
+            android:text="@string/bugoverde_send_feedback_button_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordInputLayout" />
     </LinearLayout>
 </ScrollView>

@@ -20,6 +20,7 @@ class AuthRepository(
 
             saveUserData(userId = userId, userModel = userModel)
             sharedPrefs.saveUserName(name = userModel.name)
+            sharedPrefs.saveUserId(id = userId)
             Result.success(authResult)
         } catch (e: Exception) {
             Result.failure(e)
@@ -31,6 +32,7 @@ class AuthRepository(
             val authResult = auth.signInWithEmailAndPassword(email, password).await()
 
             auth.currentUser?.uid?.let { userId ->
+                sharedPrefs.saveUserId(userId)
                 val name = getUserNameFromFirestore(userId = userId)
                 if (name != null) {
                     sharedPrefs.saveUserName(name = name)

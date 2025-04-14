@@ -70,6 +70,7 @@ dependencies {
     implementation(libs.firebase.storage.ktx)
 
     implementation(libs.glide)
+    implementation (libs.lottie)
     implementation(libs.zelory.compressor)
 
     implementation(libs.androidx.room.runtime)
