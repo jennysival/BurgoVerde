@@ -26,7 +26,7 @@
     <string name="bugoverde_change_photo_button_text">Trocar Foto</string>
     <string name="bugoverde_close_button_text">Fechar</string>
     <string name="bugoverde_delete_button_text">Excluir</string>
-    <string name="bugoverde_plant_button_text">+ Plantar</string>
+    <string name="bugoverde_send_feedback_button_text">Enviar feedback</string>
 
     <!-- Menu Texts -->
     <string name="bugoverde_home_menu_text">Início</string>
@@ -69,4 +69,5 @@
     <string name="burgoverde_weak_password">Senha insegura, por favor escolha uma senha forte!</string>
     <string name="burgoverde_image_upload_error">Erro ao adicionar a foto, tente novamente</string>
     <string name="burgoverde_image_load_error">Ops, houve um erro ao exibir sua foto</string>
+    <string name="burgoverde_no_browser_error">Ops, Não encontramos um navegador disponível</string>
 </resources>
