@@ -2,6 +2,8 @@
 
 Burgo Verde é um aplicativo mobile criado para engajar a comunidade do bairro Burgo Paulista no plantio de árvores. Com um sistema de registro e acompanhamento de metas mensais, o app incentiva moradores a contribuírem ativamente para um ambiente mais verde e sustentável.
 
+![Preview do App Burgo Verde](https://github.com/user-attachments/assets/9391ce01-b53c-4900-9483-6b8b62f4cc94)
+
 ## 📋 Funcionalidades principais no MVP
 - ✅ Cadastro e login de usuários
 - ✅ Perfil do usuário com nome e foto
