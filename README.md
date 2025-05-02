@@ -1,4 +1,5 @@
 # 🌱 Burgo Verde
+`1.0.0`
 
 Burgo Verde é um aplicativo mobile criado para engajar a comunidade do bairro Burgo Paulista no plantio de árvores. Com um sistema de registro e acompanhamento de metas mensais, o app incentiva moradores a contribuírem ativamente para um ambiente mais verde e sustentável.
 
