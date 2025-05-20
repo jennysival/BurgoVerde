@@ -1,6 +1,6 @@
 # 🌱 Roadmap do App Burgo Verde
 
-## 🎯 Objetivo do MVP (Entrega até 18/04)
+## 🎯 Objetivo do MVP (Entregue!)
 O MVP do Burgo Verde será um aplicativo simples para incentivar o plantio de árvores no bairro Burgo Paulista. Ele permitirá que os usuários façam login, registrem árvores plantadas e acompanhem uma meta mensal de plantios.
 
 ---
@@ -20,7 +20,7 @@ O MVP do Burgo Verde será um aplicativo simples para incentivar o plantio de á
 - [x] N/A
 
 ### 🔜 *A fazer*
-- [ ] Publicação na Play Store
+- [x] Publicação na Play Store [Versão para Beta Testers está publicada!]
 
 ---
 
@@ -33,6 +33,7 @@ O MVP do Burgo Verde será um aplicativo simples para incentivar o plantio de á
 - Ranking e Gamificação entre os usuários
 - Feed com plantios registrados pela comunidade
 - Débitos Técnicos (via Issues)
+- Correção de Bugs (via Issues)
 
 ---
 
